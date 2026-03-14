@@ -6,6 +6,7 @@ export async function onRequest(context) {
   const twikoo = createTwikoo({
     kv: env.TWIKOO_KV,
     path: '/',
+    admin: context.env.TWIKOO_ADMIN,
     config: {
       min: { comment:2, nick:1, mail:0 },
       allowAnonymous: true,
