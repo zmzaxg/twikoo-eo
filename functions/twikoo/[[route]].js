@@ -6,20 +6,16 @@ export async function onRequest(context) {
   const twikoo = createTwikoo({
     kv: env.TWIKOO_KV,
     path: '/',
-
-    // 这里会自动在 KV 里生成 config:min 相关配置
     config: {
-      min: {
-        comment: 2,
-        nick: 1,
-        mail: 0
-      },
-      allowAnonymous: true,  // 允许匿名
+      min: { comment:2, nick:1, mail:0 },
+      allowAnonymous: true,
       allowLogin: false,
-      allowRegister: false
+      allowRegister: false,
+      // 👇 开启邮件通知
+      mail: true
     },
-
-    master: [],
+    // 👇 把你的邮箱设为管理员（收通知）
+    master: ['zmzaxg@qq.com'],
     cron: true
   })
 
